@@ -1,4 +1,4 @@
-package dayRegist;
+package menu;
 
 import java.io.IOException;
 

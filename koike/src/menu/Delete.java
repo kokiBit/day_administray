@@ -1,4 +1,5 @@
-package dayRegist;
+package menu;
+
 
 public class Delete implements Menu  {
 

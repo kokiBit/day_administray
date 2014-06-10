@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+import menu.Comfirm;
+import menu.Delete;
+import menu.Menu;
+import menu.Regist;
+
 public class Main {
 
 	/**
@@ -21,6 +26,10 @@ public class Main {
 		map.put("2", new Comfirm());
 
 		map.put("3", new Delete());
+
+		System.out.println("1登録");
+		System.out.println("2確認");
+		System.out.println("3削除");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

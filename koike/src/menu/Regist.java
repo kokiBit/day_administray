@@ -1,12 +1,17 @@
-package dayRegist;
+package menu;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import utile.DumpFile;
+
+
 public class Regist implements Menu {
 
+
+	public static DumpFile dumpFile ;
 	public void go() throws IOException {
 
 		System.out.println("何日の進捗を登録しますか？");
@@ -15,22 +20,35 @@ public class Regist implements Menu {
 
 		String str = br.readLine();
 
-		File file = new File(str);
+		String fi = "C:/"+str+".csv";
+
+		//日付にファイルを持たす。
+		File file = new File(fi);
+
 		if (file.exists()) {
-			System.out.println("何時に出社しました？");
+			//ファイルが存在した場合の処理
+
+			System.out.println("ファイルは存在します。");
 
 		} else {
+
+			//ファイルを新規で作成
+			dumpFile.create(fi);
+
 			System.out.println("何時に出社しました？");
 			BufferedReader br1 = new BufferedReader(new InputStreamReader(
 					System.in));
 			String str2 = br1.readLine();
+
 			setTime(str2);
 
 		}
 
 	}
 
-	public void setDumpFile(String file) {
+	public void setDumpFile(DumpFile file) {
+
+
 
 	}
 
@@ -46,7 +64,9 @@ public class Regist implements Menu {
 
 		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 		String str2 = br1.readLine();
-		
+
+
+
 	}
 
 }

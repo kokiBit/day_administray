@@ -6,6 +6,12 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import menu.Comfirm;
+import menu.Delete;
+import menu.Menu;
+import menu.Regist;
+import utile.DumpFile;
+
 public class Main {
 
 	/**
@@ -14,6 +20,7 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO 自動生成されたメソッド・スタブ
+
 		final DumpFile f = new DumpFile();
 		Map<String, Menu> map = new HashMap<String, Menu>();
 		final Menu r = new Regist();
@@ -25,6 +32,10 @@ public class Main {
 		map.put("2", c);
 
 		map.put("3", new Delete());
+
+		System.out.println("1登録");
+		System.out.println("2確認");
+		System.out.println("3削除");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

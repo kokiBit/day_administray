@@ -1,4 +1,4 @@
-package dayRegist;
+package utile;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 
 public class DumpFile {
 
+
+	//ファイルを作成するメソッド
 	public void create(String file) {
 		File newfile = new File(file);
 

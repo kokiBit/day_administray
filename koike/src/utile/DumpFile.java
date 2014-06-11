@@ -8,8 +8,7 @@ import java.io.InputStreamReader;
 
 public class DumpFile {
 
-
-	//ファイルを作成するメソッド
+	// ファイルを作成するメソッド
 	public void create(String file) {
 		File newfile = new File(file);
 
@@ -20,13 +19,12 @@ public class DumpFile {
 		}
 	}
 
-
-	public void update(File file)  {
+	public void update(String file) {
 
 
 	}
 
-
+	// ファイルの中身を一行ずつ書き出すファイル
 	public static String fileToString(File file) throws IOException {
 
 		BufferedReader br = null;
@@ -49,7 +47,6 @@ public class DumpFile {
 			br.close();
 		}
 	}
-
 
 	public void delete(String file) {
 

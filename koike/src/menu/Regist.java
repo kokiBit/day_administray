@@ -44,10 +44,11 @@ public class Regist implements Menu {
 			// 書き出すファイルを読み出す。
 			String set = setTime(str2);
 
-			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(
-					file)));
+			 FileWriter fw = new FileWriter(file, false);  //※１
+	         PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+			 pw.println(set);
 
-			pw.println(set);
+			 pw.close();
 		}
 
 	}
@@ -73,7 +74,7 @@ public class Regist implements Menu {
 		// 書式を決定する。
 		String set = "『" + str + "-" + str2 + "』" + str1;
 
-		System.out.println(set + "登録しますか(y/n)");
+		System.out.println(set + "を登録しますか(y/n)");
 
 		return set;
 

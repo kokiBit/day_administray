@@ -50,9 +50,9 @@ public class Comfirm implements Menu {
 
 		/*
 		 * this.dumpFile = file;
-		 * 
+		 *
 		 * DumpFile dump = new DumpFile();
-		 * 
+		 *
 		 * if (file.equals(null)) { dump.create(file); }
 		 */
 	}

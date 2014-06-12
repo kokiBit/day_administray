@@ -21,7 +21,6 @@ public class DumpFile {
 
 	public void update(String file) {
 
-
 	}
 
 	// ファイルの中身を一行ずつ書き出すファイル

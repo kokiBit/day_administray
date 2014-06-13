@@ -13,7 +13,7 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		String str = "2014/9/5";
+		String str = "2012/02/05";
 /*
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = format.parse(str);
@@ -23,13 +23,19 @@ public class Main {
 		Check n = new Check();
 		n.dayCeck(str);
 
-		int f = Integer.parseInt(str);
+		String[] strAt = str.split("/");
+		int i = Integer.parseInt(strAt[0]);
+		int j = Integer.parseInt(strAt[1]);
+		int k = Integer.parseInt(strAt[2]);
+
+
 
 		Calendar cal = Calendar.getInstance();
-		cal.set(f,1,1);
+		cal.set(i,j-1,k);
 
-		cal.getActualMaximum(Calendar.DATE);
+		int max = cal.getActualMaximum(Calendar.DATE);
 
+		System.out.println(max);
 
 	/*	final DumpFile f = new DumpFile();
 		Map<String, Menu> map = new HashMap<String, Menu>();

@@ -1,16 +1,8 @@
 package dayRegist;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 
-import menu.Comfirm;
-import menu.Delete;
-import menu.Menu;
-import menu.Regist;
-import utile.DumpFile;
+import utile.Check;
 
 public class Main {
 
@@ -20,8 +12,14 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO 自動生成されたメソッド・スタブ
+		String str = "1014/09/05";
 
-		final DumpFile f = new DumpFile();
+		Check n = new Check();
+		n.dayCeck(str);
+
+
+
+	/*	final DumpFile f = new DumpFile();
 		Map<String, Menu> map = new HashMap<String, Menu>();
 		final Menu r = new Regist();
 		r.setDumpFile(f);
@@ -41,7 +39,7 @@ public class Main {
 
 		String str = br.readLine();
 
-		map.get(str).go();
+		map.get(str).go();*/
 
 	}
 

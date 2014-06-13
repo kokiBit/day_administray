@@ -1,6 +1,7 @@
 package dayRegist;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import utile.Check;
 
@@ -12,11 +13,22 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		String str = "1014/09/05";
+		String str = "2014/9/5";
+/*
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = format.parse(str);
+
+		*/
 
 		Check n = new Check();
 		n.dayCeck(str);
 
+		int f = Integer.parseInt(str);
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(f,1,1);
+
+		cal.getActualMaximum(Calendar.DATE);
 
 
 	/*	final DumpFile f = new DumpFile();

@@ -12,13 +12,11 @@ public class Main {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		// TODO 自動生成されたメソッド・スタブ
-		String str = "2012/02/05";
-/*
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = format.parse(str);
 
-		*/
+
+
+		String str = "2012/02/05";
+
 
 		Check n = new Check();
 		n.dayCeck(str);
@@ -36,6 +34,16 @@ public class Main {
 		int max = cal.getActualMaximum(Calendar.DATE);
 
 		System.out.println(max);
+
+
+		//日時チェック
+		String befor = "16:55";
+		String after ="17:00";
+		n.timeCheck(befor);
+		n.timeCheck(after);
+
+	    n.timeComfirm(befor, after);
+
 
 	/*	final DumpFile f = new DumpFile();
 		Map<String, Menu> map = new HashMap<String, Menu>();

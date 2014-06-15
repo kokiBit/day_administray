@@ -24,10 +24,10 @@ public class Regist implements Menu {
 
 		String str = br.readLine();
 
-		String fi = "C:" + str + ".csv";
+		String fileName = "C:" + str + ".csv";
 
 		// 日付にファイルを持たす。
-		File file = new File(fi);
+		File file = new File(fileName);
 
 		if (file.exists()) {
 			// ファイルが存在した場合の処理
@@ -93,7 +93,7 @@ public class Regist implements Menu {
 		// 書式を決定する。
 		String set = "『" + befor + "-" + after + "』" + content;
 
-		System.out.println(set + "を登録しますか(y/n)");
+		System.out.println(set + "を登録しますがよろしいでしょうか？(y/n)");
 
 		return set;
 

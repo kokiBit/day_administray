@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class DumpFile {
 
 	// ファイルを作成するメソッド
-	public void create(String file) {
+	public static void create(String file) {
 		File newfile = new File(file);
 
 		try {
@@ -19,9 +19,6 @@ public class DumpFile {
 		}
 	}
 
-	public void update(String file) {
-
-	}
 
 	// ファイルの中身を一行ずつ書き出すファイル
 	public static String fileToString(File file) throws IOException {
@@ -40,6 +37,7 @@ public class DumpFile {
 				sb.append((char) c);
 			}
 
+			System.out.println(sb.toString());
 			return sb.toString();
 		} finally {
 
@@ -47,7 +45,8 @@ public class DumpFile {
 		}
 	}
 
-	public void delete(String file) {
+
+	public static void delete(String file) {
 
 		File newdir = new File(file);
 		newdir.delete();

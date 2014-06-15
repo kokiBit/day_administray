@@ -14,8 +14,7 @@ public class Comfirm implements Menu {
 
 	public void go() throws IOException {
 
-		System.out.println("何日の進捗を登録しますか？");
-
+		System.out.println("何日の進捗を確認しますか？");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		String str = br.readLine();
@@ -25,25 +24,8 @@ public class Comfirm implements Menu {
 		// 日付にファイルを持たす。
 		File file = new File(fi);
 
-		BufferedReader br1 = null;
-		try {
+		DumpFile.fileToString(file);
 
-			br1 = new BufferedReader(new InputStreamReader(new FileInputStream(
-					file)));
-
-			StringBuffer sb = new StringBuffer();
-
-			int c;
-
-			while ((c = br1.read()) != -1) {
-				sb.append((char) c);
-			}
-
-			System.out.println(sb.toString());
-		} finally {
-
-			br1.close();
-		}
 	}
 
 	public void setDumpFile(DumpFile file) {

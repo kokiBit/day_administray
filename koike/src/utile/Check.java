@@ -1,5 +1,7 @@
 package utile;
 
+import java.util.Calendar;
+
 public class Check {
 
 	// 日付チェックの正規表現
@@ -18,6 +20,27 @@ public class Check {
 		}
 	}
 
+	//閏年等のチェク
+	public boolean lastDayCheck(String str) {
+
+		String[] strAt = str.split("/");
+		int i = Integer.parseInt(strAt[0]);
+		int j = Integer.parseInt(strAt[1]);
+		int k = Integer.parseInt(strAt[2]);
+
+		Calendar cal = Calendar.getInstance();
+		cal.set(i, j-1, 1);
+
+		int max = cal.getActualMaximum(Calendar.DATE);
+
+		if(k<max) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+
 	// 日時のチェックメソッド
 	public boolean timeCheck(String str) {
 
@@ -28,33 +51,31 @@ public class Check {
 		}
 	}
 
+
+
 	// 日時の比較メソッド
 	public boolean timeComfirm(String befor, String after) {
 
 		String[] beforTime = befor.split(":");
-		//int型に変換
+		// int型に変換
 		int beforHour = Integer.parseInt(beforTime[0]);
 		int beforMinute = Integer.parseInt(beforTime[1]);
 
 		String[] afterTime = after.split(":");
-		//int型に変換
+		// int型に変換
 		int afterHour = Integer.parseInt(afterTime[0]);
 		int afterMinute = Integer.parseInt(afterTime[1]);
 
-
-		//日時の大小チェック
-		if(beforHour==afterHour) {  //時間が一緒の場合
-			if(beforMinute<afterMinute) {  //時間がafterの方が多いとtrueを返す。
+		// 日時の大小チェック
+		if (beforHour == afterHour) { // 時間が一緒の場合
+			if (beforMinute < afterMinute) { // 時間がafterの方が多いとtrueを返す。
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
-		}
-		else if(beforHour<afterHour) { //時間がafterの方が多いとtrueを返す。
+		} else if (beforHour < afterHour) { // 時間がafterの方が多いとtrueを返す。
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}

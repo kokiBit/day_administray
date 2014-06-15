@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import utile.Check;
 import utile.DumpFile;
 
 public class Regist implements Menu {
@@ -36,19 +37,16 @@ public class Regist implements Menu {
 		} else {
 
 			file.createNewFile();
+
 			System.out.println("何時に出社しました？");
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(
-					System.in));
-			String str2 = br1.readLine();
-
 			// 書き出すファイルを読み出す。
-			String set = setTime(str2);
+			String set = setTime();
 
-			 FileWriter fw = new FileWriter(file, false);  //※１
-	         PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-			 pw.println(set);
+			FileWriter fw = new FileWriter(file, false); // ※ファイルへの書き出し作業
+			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+			pw.println(set);
 
-			 pw.close();
+			pw.close();
 		}
 
 	}
@@ -58,21 +56,42 @@ public class Regist implements Menu {
 	}
 
 	// 時間を登録するメソッド
-	public String setTime(String str) throws IOException {
-
-		System.out.println(str + "から何をしましたか？");
+	public String setTime() throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String str1 = br.readLine();
+		String befor = br.readLine();
 
-		System.out.println(str1 + "を何時まで行いましたか");
+		// Checkクラスのインスタンスを生成し、チェックする。
+		Check check = new Check();
+
+		if (check.timeCheck(befor) == true) {
+			System.out.println(befor + "から何をしましたか？");
+		} else {
+			setTime();
+		}
 
 		BufferedReader br1 = new BufferedReader(
 				new InputStreamReader(System.in));
-		String str2 = br1.readLine();
+		String content = br1.readLine();
+
+		System.out.println(content + "を何時まで行いましたか");
+
+		BufferedReader br2 = new BufferedReader(
+				new InputStreamReader(System.in));
+		String after = br2.readLine();
+
+		if (check.timeCheck(after) == true) {
+			if (check.timeComfirm(befor, after) == true) {
+
+			} else {
+				setTime();
+			}
+		} else {
+			setTime();
+		}
 
 		// 書式を決定する。
-		String set = "『" + str + "-" + str2 + "』" + str1;
+		String set = "『" + befor + "-" + after + "』" + content;
 
 		System.out.println(set + "を登録しますか(y/n)");
 

@@ -1,9 +1,16 @@
 package dayRegist;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Calendar;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
-import utile.Check;
+import menu.Comfirm;
+import menu.Delete;
+import menu.Menu;
+import menu.Regist;
+import utile.DumpFile;
 
 public class Main {
 
@@ -11,13 +18,13 @@ public class Main {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException  {
 
 
 
-		String str = "2012/02/05";
+	/*	String str = "2012/02/05";*/
 
-
+/*
 		Check n = new Check();
 		n.dayCeck(str);
 
@@ -43,9 +50,9 @@ public class Main {
 		n.timeCheck(after);
 
 	    n.timeComfirm(befor, after);
+*/
 
-
-	/*	final DumpFile f = new DumpFile();
+		final DumpFile f = new DumpFile();
 		Map<String, Menu> map = new HashMap<String, Menu>();
 		final Menu r = new Regist();
 		r.setDumpFile(f);
@@ -65,7 +72,7 @@ public class Main {
 
 		String str = br.readLine();
 
-		map.get(str).go();*/
+		map.get(str).go();
 
 	}
 

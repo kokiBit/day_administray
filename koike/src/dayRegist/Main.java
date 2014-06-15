@@ -10,6 +10,7 @@ import menu.Comfirm;
 import menu.Delete;
 import menu.Menu;
 import menu.Regist;
+import utile.Check;
 import utile.DumpFile;
 
 public class Main {

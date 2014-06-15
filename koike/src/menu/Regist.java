@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import utile.Check;
+import utile.DayCheck;
 import utile.DumpFile;
 
 public class Regist implements Menu {
@@ -18,11 +19,16 @@ public class Regist implements Menu {
 
 	public void go() throws IOException {
 
+
+		boolean ch;
+
 		System.out.println("何日の進捗を登録しますか？");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 		String str = br.readLine();
+
+		ch = DayCheck.check(str);
+
 
 		String fileName = "C:" + str + ".csv";
 
@@ -80,15 +86,6 @@ public class Regist implements Menu {
 				new InputStreamReader(System.in));
 		String after = br2.readLine();
 
-		if (check.timeCheck(after) == true) {
-			if (check.timeComfirm(befor, after) == true) {
-
-			} else {
-				setTime();
-			}
-		} else {
-			setTime();
-		}
 
 		// 書式を決定する。
 		String set = "『" + befor + "-" + after + "』" + content;

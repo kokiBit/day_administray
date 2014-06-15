@@ -69,12 +69,20 @@ public class Check {
 		// 日時の大小チェック
 		if (beforHour == afterHour) { // 時間が一緒の場合
 			if (beforMinute < afterMinute) { // 時間がafterの方が多いとtrueを返す。
-				return true;
+				if((beforMinute-afterMinute)%15==0) {
+					return true;
+				}else {
+					return false;
+				}
 			} else {
 				return false;
 			}
 		} else if (beforHour < afterHour) { // 時間がafterの方が多いとtrueを返す。
-			return true;
+			if((beforMinute-afterMinute)%15==0) {
+				return true;
+			}else {
+				return false;
+			}
 		} else {
 			return false;
 		}

@@ -33,7 +33,7 @@ public class Check {
 
 		int max = cal.getActualMaximum(Calendar.DATE);
 
-		if(k<max) {
+		if(k<=max) {
 			return true;
 		}else {
 			return false;

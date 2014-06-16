@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import utile.Check;
-import utile.DayCheck;
 import utile.DumpFile;
+import utile.Input;
 
 public class Regist implements Menu {
 
@@ -20,15 +20,8 @@ public class Regist implements Menu {
 	public void go() throws IOException {
 
 
-		boolean ch;
-
-		System.out.println("何日の進捗を登録しますか？");
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String str = br.readLine();
-
-		ch = DayCheck.check(str);
-
+		//日付の入力チェックを行う
+		String str = Input.day();
 
 		String fileName = "C:" + str + ".csv";
 
@@ -54,6 +47,8 @@ public class Regist implements Menu {
 
 			pw.close();
 		}
+
+
 
 	}
 

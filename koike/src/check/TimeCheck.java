@@ -1,8 +1,10 @@
-package utile;
+package check;
 
-public class TimeCheck {
 
-	public static boolean timeCheck(String before, String after) {
+public class TimeCheck implements TimeMastaCheck {
+
+	@Override
+	public boolean check(String before, String after) {
 
 		Check check = new Check();
 		if (check.timeCheck(after) == true) {
@@ -16,4 +18,5 @@ public class TimeCheck {
 		}
 
 	}
+
 }

@@ -1,10 +1,13 @@
-package utile;
+package check;
 
-public class DayCheck {
+
+
+public class DayCheck implements DayMastaCheck {
 
 
 	//stringを渡して、日付をチェックするクラス。
-	public static boolean check(String str) {
+	@Override
+	public boolean check(String str) {
 		Check check = new Check();
 		if (check.dayCeck(str) == true) {
 			if (check.lastDayCheck(str)) {

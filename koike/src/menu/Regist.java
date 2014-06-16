@@ -9,7 +9,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import check.Check;
+import check.DayCheck;
+import check.TimeCheck;
+import utile.DayChange;
 import utile.DumpFile;
+import utile.InputCheck;
 
 public class Regist implements Menu {
 
@@ -18,10 +22,18 @@ public class Regist implements Menu {
 
 	public void go() throws IOException {
 
+		// ファイルの入力チェックを行う
+		InputCheck inputCheck = new InputCheck();
+		String str = inputCheck.dayInput("何日の進捗を登録しますか？[blank:2012/XX/XX]",
+				new DayCheck());
 
-		String fileName = "C:" + str + ".csv";
+		// 文字をファイル用の日付に変換
+		String str1 = DayChange.change(str);
 
-		// 日付にファイルを持たす。
+		// faileの名前を作成
+		String fileName = "C:" + str1 + ".csv";
+
+		// ファイルインスタンス生成。
 		File file = new File(fileName);
 
 		if (file.exists()) {
@@ -31,59 +43,39 @@ public class Regist implements Menu {
 
 		} else {
 
-			file.createNewFile();
+			DumpFile.create(fileName);
 
-			System.out.println("何時に出社しました？");
-			// 書き出すファイルを読み出す。
-			String set = setTime();
+			String before = inputCheck.timeInput("何時に出社しましたか?", new TimeCheck());
 
-			FileWriter fw = new FileWriter(file, false); // ※ファイルへの書き出し作業
-			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-			pw.println(set);
+			System.out.println(before + "から何をしましたか？");
 
-			pw.close();
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					System.in));
+			String content = br.readLine();
+
+			String after = inputCheck.confirm(content + "を何時まで行いましたか？", before,
+					new TimeCheck());
+
+			String set = "『" + before + "-" + after + "』" + content;
+
+			System.out.println(set + "を登録しますがよろしいでしょうか？(y/n)");
+
+			BufferedReader br1 = new BufferedReader(new InputStreamReader(
+					System.in));
+			String lastCheck = br1.readLine();
+
+			if (lastCheck.equals("y")) {
+				FileWriter fw = new FileWriter(file, false); // ※ファイルへの書き出し作業
+				PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+				pw.println(set);
+
+				pw.close();
+			}
 		}
-
-
 
 	}
 
 	public void setDumpFile(DumpFile file) {
-
-	}
-
-	// 時間を登録するメソッド
-	public String setTime() throws IOException {
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String befor = br.readLine();
-
-		// Checkクラスのインスタンスを生成し、チェックする。
-		Check check = new Check();
-
-		if (check.timeCheck(befor) == true) {
-			System.out.println(befor + "から何をしましたか？");
-		} else {
-			setTime();
-		}
-
-		BufferedReader br1 = new BufferedReader(
-				new InputStreamReader(System.in));
-		String content = br1.readLine();
-
-		System.out.println(content + "を何時まで行いましたか");
-
-		BufferedReader br2 = new BufferedReader(
-				new InputStreamReader(System.in));
-		String after = br2.readLine();
-
-
-		// 書式を決定する。
-		String set = "『" + befor + "-" + after + "』" + content;
-
-		System.out.println(set + "を登録しますがよろしいでしょうか？(y/n)");
-
-		return set;
 
 	}
 

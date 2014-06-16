@@ -2,5 +2,7 @@ package check;
 
 public interface TimeMastaCheck {
 
-	boolean check(String before,String after);
+	boolean confirmCheck(String before,String after);
+
+	boolean check(String time);
 }

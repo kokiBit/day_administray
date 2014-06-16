@@ -4,7 +4,7 @@ package check;
 public class TimeCheck implements TimeMastaCheck {
 
 	@Override
-	public boolean check(String before, String after) {
+	public boolean confirmCheck(String before, String after) {
 
 		Check check = new Check();
 		if (check.timeCheck(after) == true) {
@@ -17,6 +17,17 @@ public class TimeCheck implements TimeMastaCheck {
 			return false;
 		}
 
+	}
+
+	@Override
+	public boolean check(String time) {
+
+		Check check = new Check();
+		if (check.timeCheck(time) == true) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

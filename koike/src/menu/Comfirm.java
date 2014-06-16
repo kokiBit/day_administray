@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import utile.DayChange;
 import utile.DumpFile;
 
 public class Comfirm implements Menu {
@@ -19,7 +20,8 @@ public class Comfirm implements Menu {
 
 		String str = br.readLine();
 
-		String fi = "C:" + str + ".csv";
+		String str1 = DayChange.change(str);
+		String fi = "C:" + str1 + ".csv";
 
 		// 日付にファイルを持たす。
 		File file = new File(fi);

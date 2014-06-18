@@ -5,11 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import entity.Record;
 
 public class DumpFile {
 
@@ -38,34 +33,13 @@ public class DumpFile {
 
 			int c;
 
-			String t;
-			List<String> a = new ArrayList<String>();
-
-			List<Record> b = new ArrayList<Record>();
-
-			Record r = new Record();
-
-			r.setEndHour(11);
-			b.add(r);
-
-				for(Iterator<Record> i = b.iterator();i.hasNext();) {
-					System.out.println(i.next());
-				}
-
-
-
-			t = br.readLine();
-			a.add(t);
-
-
 			while ((c = br.read()) != -1) {
-				DayChange.change(br.readLine());
-				/*sb.append((char) c);*/
+				DayChange.change(br.readLine());//リードラインを元に分割するメソッドを作成
+				sb.append((char) c);
 			}
 
-			/*System.out.println(sb.toString());*/
-			System.out.println(a.get(0));
-			System.out.println(a.get(1));
+			System.out.println(sb.toString());
+
 			return sb.toString();
 		} finally {
 

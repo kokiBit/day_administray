@@ -77,18 +77,15 @@ public class DumpFile {
 
 				System.out.println(out);
 
-				for (int key = 0; key <= taskId; key++) {
-					if (taskNum.containsKey(taskId)) {
-
-						int sum = taskTime.get(entity.getTask())
-								+ entity.getWorkTime();
-						taskTime.put(entity.getTask(), sum);
-					} else {
-						taskId = taskId + 1;
-						taskNum.put(taskId, entity.getTask());
-
-						taskTime.put(entity.getTask(), entity.getWorkTime());
-					}
+				if (taskTime.containsKey(entity.getTask())) {
+					taskTime.put(
+							entity.getTask(),
+							taskTime.get(entity.getTask())
+									+ entity.getWorkTime());
+				} else {
+					taskTime.put(entity.getTask(), entity.getWorkTime());
+					taskId = taskId + 1;
+					taskNum.put(taskId, entity.getTask());
 				}
 
 			}

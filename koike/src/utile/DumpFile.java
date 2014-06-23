@@ -43,7 +43,7 @@ public class DumpFile {
 			while ((lien = br.readLine()) != null) {
 
 				// 読み込んだ値を分割
-				String[] strAt = br.readLine().split("-");
+				String[] strAt = lien.split("-");
 				String[] strAt1 = strAt[1].split(" ");
 				String[] after = strAt[0].split(":");
 				String[] before = strAt1[0].split(":");
@@ -77,20 +77,42 @@ public class DumpFile {
 
 				System.out.println(out);
 
-				taskTime.put(entity.getTask(), entity.getWorkTime());
+				for (int key = 0; key <= taskId; key++) {
+					if (taskNum.containsKey(taskId)) {
 
+						int sum = taskTime.get(entity.getTask())
+								+ entity.getWorkTime();
+						taskTime.put(entity.getTask(), sum);
+					} else {
+						taskId = taskId + 1;
+						taskNum.put(taskId, entity.getTask());
 
-				if(taskNum.containsKey(taskId)) {
-
-				}else {
-					taskNum.put(taskId, entity.getTask());
-					taskId = taskId + 1;
+						taskTime.put(entity.getTask(), entity.getWorkTime());
+					}
 				}
+
 			}
-			
-			
+
+			for (int count = 1; count <= taskId; count++) {
+				int samari = taskTime.get(taskNum.get(count));
+
+				int hour = samari / 60;
+				int min = samari % 60;
+
+				String outSamari = null;
+
+				if (min == 0) {
+					outSamari = taskNum.get(count) + " " + hour + "." + min
+							+ "0";
+				} else {
+					outSamari = taskNum.get(count) + " " + hour + "." + min;
+				}
+
+				System.out.println(outSamari);
+			}
 
 			return null;
+
 		} finally {
 
 			br.close();

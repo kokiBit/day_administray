@@ -8,12 +8,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-import check.Check;
-import check.DayCheck;
-import check.TimeCheck;
 import utile.DayChange;
 import utile.DumpFile;
 import utile.InputCheck;
+import check.DayCheck;
+import check.TimeCheck;
 
 public class Regist implements Menu {
 
@@ -56,9 +55,9 @@ public class Regist implements Menu {
 			String after = inputCheck.confirm(content + "を何時まで行いましたか？", before,
 					new TimeCheck());
 
-			String set = "『" + before + "-" + after + "』" + content;
+			String set =  before + "-" + after +" " + content;
 
-			System.out.println(set + "を登録しますがよろしいでしょうか？(y/n)");
+			System.out.println("『" + set + "』" + "を登録しますがよろしいでしょうか？(y/n)");
 
 			BufferedReader br1 = new BufferedReader(new InputStreamReader(
 					System.in));

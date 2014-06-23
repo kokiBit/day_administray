@@ -48,7 +48,7 @@ public class Record {
 		this.task = task;
 	}
 
-	public int getWorkTimeMin() {
+	public int getWorkTime() {
 		return (endHour - startHour) * 60 + endMin - startMin;
 
 	}

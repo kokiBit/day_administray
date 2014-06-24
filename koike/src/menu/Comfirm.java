@@ -2,7 +2,6 @@ package menu;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -26,7 +25,8 @@ public class Comfirm implements Menu {
 		// 日付にファイルを持たす。
 		File file = new File(fi);
 
-		DumpFile.fileToString(file);
+		DumpFile.dump(file);
+
 
 	}
 

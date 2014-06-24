@@ -15,26 +15,26 @@ import entity.Record;
 public class DumpFile {
 
 	// ファイルを作成するメソッド
-	public static void create(String file) {
-		File newfile = new File(file);
+	public static File create(String file) {
+		File newFile = new File(file);
 
 		try {
-			newfile.createNewFile();
+			newFile.createNewFile();
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+
+		return newFile;
 	}
 
 	// ファイルの中身を一行ずつ書き出すファイル
-	public static String fileToString(File file) throws IOException {
+	public static String dump(File file) throws IOException {
 
 		BufferedReader br = null;
 		try {
 
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(
-					file)));
-
-			StringBuffer sb = new StringBuffer();
+					file),"Shift-JIS"));
 
 			String lien = null;
 

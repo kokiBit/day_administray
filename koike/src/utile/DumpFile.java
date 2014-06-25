@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 
 import entity.Record;
 
@@ -28,7 +29,7 @@ public class DumpFile {
 	}
 
 	// ファイルの中身を一行ずつ書き出すファイル
-	public static String dump(File file) throws IOException {
+	public static String dumpSamari(File file) throws IOException {
 
 		BufferedReader br = null;
 		try {
@@ -63,6 +64,9 @@ public class DumpFile {
 			HashMap<Integer, String> taskNum = new HashMap<Integer, String>();
 			int taskId = 0;
 
+			for(Record record : list) {
+				
+			}
 			for (Iterator<Record> id = list.iterator(); id.hasNext();) {
 
 				Record entity = id.next();
@@ -88,6 +92,11 @@ public class DumpFile {
 					taskNum.put(taskId, entity.getTask());
 				}
 
+			}
+			
+			for(Entry<String, Integer> entry : taskTime.entrySet()) {
+				String taskName = entry.getKey();
+				Integer total = entry.getValue();
 			}
 
 			for (int count = 1; count <= taskId; count++) {

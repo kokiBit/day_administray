@@ -25,7 +25,7 @@ public class Comfirm implements Menu {
 		// 日付にファイルを持たす。
 		File file = new File(fi);
 
-		DumpFile.dump(file);
+		DumpFile.dumpSamari(file);
 
 
 	}

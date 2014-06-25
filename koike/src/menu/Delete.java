@@ -23,7 +23,7 @@ public class Delete implements Menu  {
 
 		// 日付にファイルを持たす。
 		File file = new File(fi);
-		DumpFile.dump(file);
+		DumpFile.dumpSamari(file);
 
 		System.out.println("上記実績を本当に削除しても良いですか？[y/n]");
 

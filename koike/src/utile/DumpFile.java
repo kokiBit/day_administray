@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -35,7 +34,7 @@ public class DumpFile {
 		try {
 
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(
-					file),"Shift-JIS"));
+					file), "Shift-JIS"));
 
 			String lien = null;
 
@@ -64,13 +63,8 @@ public class DumpFile {
 			HashMap<Integer, String> taskNum = new HashMap<Integer, String>();
 			int taskId = 0;
 
-			for(Record record : list) {
+			for (Record entity : list) {
 				
-			}
-			for (Iterator<Record> id = list.iterator(); id.hasNext();) {
-
-				Record entity = id.next();
-
 				String startHour = String.valueOf(entity.getStartHour());
 				String startMin = String.valueOf(entity.getStartMin());
 				String endHour = String.valueOf(entity.getEndHour());
@@ -93,25 +87,20 @@ public class DumpFile {
 				}
 
 			}
-			
-			for(Entry<String, Integer> entry : taskTime.entrySet()) {
+
+			for (Entry<String, Integer> entry : taskTime.entrySet()) {
 				String taskName = entry.getKey();
 				Integer total = entry.getValue();
-			}
 
-			for (int count = 1; count <= taskId; count++) {
-				int samari = taskTime.get(taskNum.get(count));
-
-				int hour = samari / 60;
-				int min = samari % 60;
+				int hour = total / 60;
+				int min = total % 60;
 
 				String outSamari = null;
 
 				if (min == 0) {
-					outSamari = taskNum.get(count) + " " + hour + "." + min
-							+ "0";
+					outSamari = taskName + " " + hour + "." + min + "0";
 				} else {
-					outSamari = taskNum.get(count) + " " + hour + "." + min;
+					outSamari = taskName + " " + hour + "." + min;
 				}
 
 				System.out.println(outSamari);

@@ -163,12 +163,12 @@ public class Regist implements Menu {
 				System.out.println(out);
 			}
 
-			int count = list.size() - 1;
+			int count = list.size()-1;
 			int beforeHour = list.get(count).getEndHour();
-			int beforeMin = list.get(count).getEndHour();
+			int beforeMin = list.get(count).getEndMin();
 
-			String before = Integer.toString(beforeHour) + ":"
-					+ Integer.toString(beforeMin);
+			String before = String.valueOf(beforeHour) + ":"
+					+ String.valueOf(beforeMin);
 
 			return before;
 

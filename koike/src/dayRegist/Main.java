@@ -33,7 +33,7 @@ public class Main {
 		map.put("3", new Delete());
 
 		System.out.println("作業実績管理システム");;
-		System.out.println("1)登録");
+		System.out.println("*1)登録");
 		System.out.println("*2)確認");
 		System.out.println("*3)削除");
 		System.out.println("*q)終了");

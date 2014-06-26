@@ -140,10 +140,10 @@ public class Regist implements Menu {
 
 				// 値をエンティティに格納
 				Record rec = new Record();
-				rec.setStartHour(Integer.parseInt(after[0]));
-				rec.setStartMin(Integer.parseInt(after[1]));
-				rec.setEndHour(Integer.parseInt(before[0]));
-				rec.setEndMin(Integer.parseInt(before[1]));
+				rec.setStartHour(after[0]);
+				rec.setStartMin(after[1]);
+				rec.setEndHour(before[0]);
+				rec.setEndMin(before[1]);
 				rec.setTask(strAt1[1]);
 
 				list.add(rec);
@@ -164,8 +164,8 @@ public class Regist implements Menu {
 			}
 
 			int count = list.size()-1;
-			int beforeHour = list.get(count).getEndHour();
-			int beforeMin = list.get(count).getEndMin();
+			String beforeHour = list.get(count).getEndHour();
+			String beforeMin = list.get(count).getEndMin();
 
 			String before = String.valueOf(beforeHour) + ":"
 					+ String.valueOf(beforeMin);

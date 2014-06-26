@@ -50,10 +50,10 @@ public class DumpFile {
 
 				// 値をエンティティに格納
 				Record rec = new Record();
-				rec.setStartHour(Integer.parseInt(after[0]));
-				rec.setStartMin(Integer.parseInt(after[1]));
-				rec.setEndHour(Integer.parseInt(before[0]));
-				rec.setEndMin(Integer.parseInt(before[1]));
+				rec.setStartHour(after[0]);
+				rec.setStartMin(after[1]);
+				rec.setEndHour(before[0]);
+				rec.setEndMin(before[1]);
 				rec.setTask(strAt1[1]);
 
 				list.add(rec);
@@ -64,7 +64,7 @@ public class DumpFile {
 			int taskId = 0;
 
 			for (Record entity : list) {
-				
+
 				String startHour = String.valueOf(entity.getStartHour());
 				String startMin = String.valueOf(entity.getStartMin());
 				String endHour = String.valueOf(entity.getEndHour());

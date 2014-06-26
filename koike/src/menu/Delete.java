@@ -13,7 +13,7 @@ public class Delete implements Menu  {
 
 	public void go() throws IOException {
 
-		System.out.println("何日の進捗を確認しますか？");
+		System.out.println("何日の進捗を削除しますか？");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		String str = br.readLine();

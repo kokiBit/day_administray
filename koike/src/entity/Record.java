@@ -2,41 +2,41 @@ package entity;
 
 public class Record {
 
-	private int startHour;
-	private int startMin;
-	private int endHour;
-	private int endMin;
+	private String startHour;
+	private String startMin;
+	private String endHour;
+	private String endMin;
 	private String task;
 
-	public int getStartHour() {
+	public String getStartHour() {
 		return startHour;
 	}
 
-	public void setStartHour(int startHour) {
+	public void setStartHour(String startHour) {
 		this.startHour = startHour;
 	}
 
-	public int getStartMin() {
+	public String getStartMin() {
 		return startMin;
 	}
 
-	public void setStartMin(int startMin) {
+	public void setStartMin(String startMin) {
 		this.startMin = startMin;
 	}
 
-	public int getEndHour() {
+	public String getEndHour() {
 		return endHour;
 	}
 
-	public void setEndHour(int endHour) {
+	public void setEndHour(String endHour) {
 		this.endHour = endHour;
 	}
 
-	public int getEndMin() {
+	public String getEndMin() {
 		return endMin;
 	}
 
-	public void setEndMin(int endMin) {
+	public void setEndMin(String endMin) {
 		this.endMin = endMin;
 	}
 
@@ -49,7 +49,7 @@ public class Record {
 	}
 
 	public int getWorkTime() {
-		return (endHour - startHour) * 60 + endMin - startMin;
+		return (Integer.parseInt(endHour) - Integer.parseInt(startHour)) * 60 + Integer.parseInt(endMin) - Integer.parseInt(startMin);
 
 	}
 

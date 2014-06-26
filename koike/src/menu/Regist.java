@@ -68,13 +68,11 @@ public class Regist implements Menu {
 
 			if (con.equals("y")) {
 				reBefore = input(fileName, reBefore, file);
-			} else {
+			} else if(con.equals("n")) {
 				reBefore = null;
 			}
 
 		}
-
-		System.out.println("登録を終了します。");
 
 	}
 

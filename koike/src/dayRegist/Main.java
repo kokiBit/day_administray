@@ -18,33 +18,46 @@ public class Main {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
-		final DumpFile f = new DumpFile();
-		Map<String, Menu> map = new HashMap<String, Menu>();
-		final Menu r = new Regist();
-		r.setDumpFile(f);
-		final Menu c = new Comfirm();
-		c.setDumpFile(f);
-		map.put("1", r);
+		String str = null;
 
-		map.put("2", c);
+		try {
 
-		map.put("3", new Delete());
+			do {
+				final DumpFile f = new DumpFile();
+				Map<String, Menu> map = new HashMap<String, Menu>();
+				final Menu r = new Regist();
+				r.setDumpFile(f);
+				final Menu c = new Comfirm();
+				c.setDumpFile(f);
+				map.put("1", r);
 
-		System.out.println("作業実績管理システム");;
-		System.out.println("*1)登録");
-		System.out.println("*2)確認");
-		System.out.println("*3)削除");
-		System.out.println("*q)終了");
-		System.out.println("*************************");
+				map.put("2", c);
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+				map.put("3", new Delete());
 
-		String str = br.readLine();
+				System.out.println("作業実績管理システム");
+				;
+				System.out.println("*1)登録");
+				System.out.println("*2)確認");
+				System.out.println("*3)削除");
+				System.out.println("*q)終了");
+				System.out.println("*************************");
 
-		map.get(str).go();
+				BufferedReader br = new BufferedReader(new InputStreamReader(
+						System.in));
+
+				str = br.readLine();
+
+				map.get(str).go();
+
+			} while (str.equals("1")||str.equals("2")||str.equals("3"));
+
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+		}
 
 	}
-
 }
